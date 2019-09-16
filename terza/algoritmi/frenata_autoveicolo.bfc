@@ -1,0 +1,19 @@
+PROG main
+	ASSIGN f = 0
+	IN vel
+	IN tipo_asfalto
+	IF tipo_asfalto == 1
+		ASSIGN f = 0.6
+	ELSE //if tipo_asfalto == 1
+		IF tipo_asfalto == 2
+			ASSIGN f = 0.4
+		ELSE //if tipo_asfalto == 2
+			IF tipo_asfalto == 3
+				ASSIGN f = 0.5
+			ELSE //if tipo_asfalto == 3
+				ASSIGN f = 0.1
+			END IF //tipo_asfalto == 3
+		END IF //tipo_asfalto == 2
+	END IF //tipo_asfalto == 1
+	ASSIGN spazio = vel*vel/(250*f)
+END PROG //main
