@@ -26,7 +26,15 @@
 *.a
 *.lib
 
+#Codeblocks project files
+*.layout
+
+#java specific
+*.class
+
 # Executables
 *.exe
 *.out
 *.app
+/quarta/ordinamento/bubbleSortJava/nbproject/private/
+/quarta/ordinamento/bubbleSortJava/build/
