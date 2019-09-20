@@ -1,0 +1,8 @@
+PROG main
+	ASSIGN conta = 0
+	IN N
+	WHILE N != 0
+		ASSIGN conta = conta + 1
+		IN N
+	END WHILE //N != 0
+END PROG //main
