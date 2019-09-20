@@ -1,6 +1,0 @@
-PROG main
-	IN raggio
-	ASSIGN pi_greco = 3.1415
-	ASSIGN area = raggio*raggio*pi_greco
-	OUT area
-END PROG //main
