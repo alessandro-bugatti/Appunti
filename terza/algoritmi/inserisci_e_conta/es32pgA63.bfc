@@ -1,0 +1,14 @@
+PROG main
+	ASSIGN contatore = 0
+	ASSIGN somma = 0
+	DO_WHILE //n != 0
+		IN n
+		IF n != 0
+			ASSIGN somma = somma + n
+			ASSIGN contatore = contatore + 1
+		ELSE //if n != 0
+		END IF //n != 0
+	END DO_WHILE n != 0
+	OUT contatore
+	OUT somma
+END PROG //main
