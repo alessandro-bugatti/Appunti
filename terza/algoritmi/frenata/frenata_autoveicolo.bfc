@@ -1,7 +1,9 @@
 PROG main
 	ASSIGN f = 0
 	IN vel
-	IN tipo_asfalto
+	DO_WHILE //tipo_asfalto <0 ||  tipo_asfalto >4
+		IN tipo_asfalto
+	END DO_WHILE tipo_asfalto <0 ||  tipo_asfalto >4
 	IF tipo_asfalto == 1
 		ASSIGN f = 0.6
 	ELSE //if tipo_asfalto == 1
@@ -16,4 +18,5 @@ PROG main
 		END IF //tipo_asfalto == 2
 	END IF //tipo_asfalto == 1
 	ASSIGN spazio = vel*vel/(250*f)
+	OUT spazio
 END PROG //main
