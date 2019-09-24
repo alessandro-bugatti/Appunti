@@ -15,7 +15,7 @@ public class InsertionSortAdattivo {
     /**
      * @param args the command line arguments
      */
-    static int N = 60000;
+    static int N = 200000;
     public static void main(String[] args) {
         int min= 0, temp, v[]= new int[N];
         long inizio, fine;
@@ -34,13 +34,13 @@ public class InsertionSortAdattivo {
         inizio=System.currentTimeMillis();
         int j;
         for (int i=2; i<N; i++){
-            j = i;
-            while (v[j]<v[j-1]){
-                temp = v[j-1];
-                v[j-1]= v[j];
-                v[j]= temp;
+            j = i-1;
+            int m = v[i];
+            while (v[j] > m){
+                v[j+1] = v[j];
                 j--;
             }  
+            v[j+1] = m;
         }
         fine=System.currentTimeMillis();
         System.out.print("Tempo impiegato: " + (double)(fine-inizio)/1000);
