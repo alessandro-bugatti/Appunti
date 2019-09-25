@@ -1,0 +1,14 @@
+PROG main
+	IN n
+	ASSIGN R=0
+	ASSIGN Magg_num=0
+	WHILE n!=0
+		ASSIGN R=n%10
+		IF Magg_num<R
+			ASSIGN Magg_num = R
+		ELSE //if Magg_num<R
+		END IF //Magg_num<R
+		ASSIGN n=floor(n/10)
+	END WHILE //n!=0
+	OUT Magg_num
+END PROG //main
