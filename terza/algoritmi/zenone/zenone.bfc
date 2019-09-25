@@ -1,0 +1,11 @@
+PROG main
+	IN distanza
+	IN numero_passi
+	ASSIGN distanza_effettiva = 0
+	DO_WHILE //numero_passi > 0
+		ASSIGN distanza = distanza/2
+		ASSIGN distanza_effettiva = distanza_effettiva + distanza
+		ASSIGN numero_passi = numero_passi - 1
+	END DO_WHILE numero_passi > 0
+	OUT distanza_effettiva
+END PROG //main
