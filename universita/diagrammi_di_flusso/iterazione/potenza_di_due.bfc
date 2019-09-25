@@ -1,0 +1,10 @@
+PROG main
+	IN N
+	ASSIGN i = 0
+	ASSIGN risposta = 1
+	WHILE i < N
+		ASSIGN risposta = risposta*2
+		ASSIGN i = i + 1
+	END WHILE //i < N
+	OUT risposta
+END PROG //main

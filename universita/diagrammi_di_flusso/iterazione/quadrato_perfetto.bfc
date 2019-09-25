@@ -1,0 +1,9 @@
+PROG main
+	IN N
+	ASSIGN risposta  = 0
+	WHILE risposta*risposta < N
+		ASSIGN precedente = risposta
+		ASSIGN risposta = risposta + 1
+	END WHILE //risposta*risposta < N
+	OUT precedente*precedente
+END PROG //main
