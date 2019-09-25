@@ -1,0 +1,8 @@
+PROG main
+	IN base
+	IN altezza
+	ASSIGN perimetro = (base + altezza)*2
+	ASSIGN area = base*altezza
+	OUT perimetro
+	OUT area
+END PROG //main

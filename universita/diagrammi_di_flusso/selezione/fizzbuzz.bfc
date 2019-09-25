@@ -1,0 +1,11 @@
+PROG main
+	IN N
+	IF N % 3 == 0
+		OUT "Fizz"
+	ELSE //if N % 3 == 0
+	END IF //N % 3 == 0
+	IF N % 5 == 0
+		OUT "Buzz"
+	ELSE //if N % 5 == 0
+	END IF //N % 5 == 0
+END PROG //main
