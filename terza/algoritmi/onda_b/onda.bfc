@@ -1,0 +1,9 @@
+PROG main
+	IN h
+	ASSIGN k = 0
+	WHILE h >= 1
+		ASSIGN k = k + 1
+		ASSIGN h = h / 2
+	END WHILE //h >= 1
+	OUT k
+END PROG //main

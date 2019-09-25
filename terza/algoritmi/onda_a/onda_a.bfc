@@ -1,0 +1,13 @@
+PROG main
+	IN h
+	IN k
+	WHILE k > 0 && h >= 1
+		ASSIGN k = k - 1
+		ASSIGN h = h / 2
+	END WHILE //k > 0 && h >= 1
+	IF h < 1
+		ASSIGN h = 0
+	ELSE //if h < 1
+	END IF //h < 1
+	OUT h
+END PROG //main
