@@ -1,0 +1,20 @@
+PROG main
+	IN base
+	IN esponente
+	ASSIGN risultato = 1
+	IF esponente < 0
+		ASSIGN esponente = -esponente
+		ASSIGN negativo = 1
+	ELSE //if esponente < 0
+		ASSIGN negativo = 0
+	END IF //esponente < 0
+	WHILE esponente > 0
+		ASSIGN risultato = risultato * base
+		ASSIGN esponente = esponente - 1
+	END WHILE //esponente > 0
+	IF negativo == 1
+		ASSIGN risultato = 1 / risultato
+	ELSE //if negativo == 1
+	END IF //negativo == 1
+	OUT risultato
+END PROG //main

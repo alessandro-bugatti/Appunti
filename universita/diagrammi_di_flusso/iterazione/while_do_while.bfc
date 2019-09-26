@@ -1,0 +1,19 @@
+PROG main
+	ASSIGN prodotto = 1
+	IN numero
+	WHILE numero != 0
+		ASSIGN prodotto = prodotto * numero
+		IN numero
+	END WHILE //numero != 0
+	OUT prodotto
+	OUT "Questa versione è meno elegante"
+	ASSIGN prodotto = 1
+	DO_WHILE //numero != 0
+		IN numero
+		IF numero != 0
+			ASSIGN prodotto = prodotto * numero
+		ELSE //if numero != 0
+		END IF //numero != 0
+	END DO_WHILE numero != 0
+	OUT prodotto
+END PROG //main

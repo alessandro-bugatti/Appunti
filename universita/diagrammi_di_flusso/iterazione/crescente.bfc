@@ -1,0 +1,24 @@
+PROG main
+	IN N
+	WHILE N < 2
+		IN N
+	END WHILE //N < 2
+	IN elemento
+	ASSIGN N = N - 1
+	ASSIGN precedente = elemento
+	ASSIGN crescente = 1
+	WHILE N > 0
+		IN elemento
+		IF precedente >= elemento
+			ASSIGN crescente = 0
+		ELSE //if precedente >= elemento
+		END IF //precedente >= elemento
+		ASSIGN N = N - 1
+		ASSIGN precedente = elemento
+	END WHILE //N > 0
+	IF crescente == 1
+		OUT "La sequenza è crescente"
+	ELSE //if crescente == 1
+		OUT "La sequenza non è crescente"
+	END IF //crescente == 1
+END PROG //main

@@ -1,0 +1,9 @@
+PROG main
+	IN N
+	ASSIGN cifre = 0
+	WHILE N > 0
+		ASSIGN N = floor(N/10)
+		ASSIGN cifre = cifre + 1
+	END WHILE //N > 0
+	OUT cifre
+END PROG //main
