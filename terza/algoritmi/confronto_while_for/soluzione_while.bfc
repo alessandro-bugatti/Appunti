@@ -1,0 +1,15 @@
+PROG main
+	IN k
+	IN n
+	ASSIGN i = 0
+	ASSIGN conta = 0
+	WHILE i < n
+		IN valore
+		IF valore > k
+			ASSIGN conta = conta + 1
+		ELSE //if valore > k
+		END IF //valore > k
+		ASSIGN i = i + 1
+	END WHILE //i < n
+	OUT conta
+END PROG //main

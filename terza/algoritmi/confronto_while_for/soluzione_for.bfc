@@ -1,0 +1,13 @@
+PROG main
+	IN k
+	IN n
+	ASSIGN conta = 0
+	FOR i = 0; i < n; i = i + 1
+		IN valore
+		IF valore > k
+			ASSIGN conta = conta + 1
+		ELSE //if valore > k
+		END IF //valore > k
+	END FOR //i = 0; i < n; i = i + 1
+	OUT conta
+END PROG //main
