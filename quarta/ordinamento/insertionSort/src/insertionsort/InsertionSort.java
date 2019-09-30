@@ -5,13 +5,21 @@
  */
 package insertionsort;
 
+
 /**
  *
  * @author 72351597
  */
 public class InsertionSort {
     
-    static int N=60000;
+    static int N=6;
+    
+    static void stampa_vettore(int v[], int n)
+    {
+        for (int i=0; i<N; i++)
+                System.out.println(v[i]);
+    }
+
     
     public static void main(String[] args) {
         int v[], k=1, temp;
@@ -34,7 +42,6 @@ public class InsertionSort {
         fine=System.currentTimeMillis();
         System.out.print("Tempo impiegato: " + (double)(fine-inizio)/1000);
         System.out.println();
-        //for (int i=0; i<N; i++)
-            //System.out.println(v[i]);
+        stampa_vettore(v, N);
     }
 }
