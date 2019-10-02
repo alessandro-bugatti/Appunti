@@ -1,0 +1,21 @@
+PROG main
+	IN a
+	IN b
+	IF a > b
+		ASSIGN t = a
+		ASSIGN a = b
+		ASSIGN b = t
+	ELSE //if a > b
+	END IF //a > b
+	ASSIGN risultato = 0
+	WHILE a != 1
+		IF a % 2 == 1
+			ASSIGN risultato = risultato + b
+		ELSE //if a % 2 == 1
+		END IF //a % 2 == 1
+		ASSIGN a = floor(a/2)
+		ASSIGN b = b * 2
+	END WHILE //a != 1
+	ASSIGN risultato = risultato + b
+	OUT risultato
+END PROG //main

@@ -1,0 +1,12 @@
+PROG main
+	IN N
+	ASSIGN fibonacci = 0
+	ASSIGN f_n_1 = 1
+	ASSIGN f_n_2 = 0
+	FOR i = 1; i < N; i = i + 1
+		ASSIGN fibonacci = f_n_1 + f_n_2
+		ASSIGN f_n_2 = f_n_1
+		ASSIGN f_n_1 = fibonacci
+	END FOR //i = 1; i < N; i = i + 1
+	OUT fibonacci
+END PROG //main
