@@ -1,0 +1,26 @@
+PROG main
+	IN a
+	IN b
+	IN c
+	IF a < b
+		IF b < c
+			OUT a, b, c
+		ELSE //if b < c
+			IF c < a
+				OUT c, a, b
+			ELSE //if c < a
+				OUT a, c, b
+			END IF //c < a
+		END IF //b < c
+	ELSE //if a < b
+		IF c < b
+			OUT c, b, a
+		ELSE //if c < b
+			IF c < a
+				OUT b, c, a
+			ELSE //if c < a
+				OUT b, a, c
+			END IF //c < a
+		END IF //c < b
+	END IF //a < b
+END PROG //main

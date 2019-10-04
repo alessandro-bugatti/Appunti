@@ -1,0 +1,13 @@
+PROG main
+	IN N
+	IF N % 2 == 0
+		OUT "Pari"
+		IF N % 4 == 0
+			OUT "Multiplo di 4"
+		ELSE //if N % 4 == 0
+			OUT "Ma non multiplo di 4"
+		END IF //N % 4 == 0
+	ELSE //if N % 2 == 0
+		OUT "Dispari"
+	END IF //N % 2 == 0
+END PROG //main
