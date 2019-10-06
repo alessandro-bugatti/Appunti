@@ -1,0 +1,11 @@
+Insieme a questo file si trovano i file per le prove su HTML e CSS
+
+Prova HTML
+Partendo dal file provahtml.txt aggiungere la marcatura HTML in modo che il file venga reso dal browser come nell'immagine provahtml.jpg
+
+Prova CSS
+Partendo dal file provacss.html, attualmente senza marcatura di nessun tipo, lo si renda il più possibile simile a quello mostrato in figura provacss.jpg nella versione desktop 1366x768 e in modo che ridimensionandolo a 720x768 si ottenga la figura provacss_mobile.jpg, il tutto utilizzando la libreria mini.css di cui verrà messa a disposizione la documentazione. Il file mini-default.min.css si trova già in questa cartella. 
+
+Nella valutazione i file verranno sottoposti anche a un processo di validazione rispetto agli standard HTML5 e CSS3.
+
+Il risultato deve essere il più simile possibile.
