@@ -28,6 +28,7 @@
 
 #Codeblocks project files
 *.layout
+*.depend
 
 #java specific
 *.class
