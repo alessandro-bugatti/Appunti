@@ -33,6 +33,9 @@
 #java specific
 *.class
 
+#auxiliary Dia files
+*~
+
 # Executables
 *.exe
 *.out
