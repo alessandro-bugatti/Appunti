@@ -1,0 +1,24 @@
+PROG main
+	IN laura
+	IN anna
+	IN piero
+	IF laura - piero > 0
+		ASSIGN punteggio_laura = laura - piero
+	ELSE //if laura - piero > 0
+		ASSIGN punteggio_laura = piero - laura
+	END IF //laura - piero > 0
+	IF anna - piero > 0
+		ASSIGN punteggio_anna = anna - piero
+	ELSE //if anna - piero > 0
+		ASSIGN punteggio_anna = piero - anna
+	END IF //anna - piero > 0
+	IF punteggio_laura < punteggio_anna
+		OUT "Vince Laura"
+	ELSE //if punteggio_laura < punteggio_anna
+		IF punteggio_laura == punteggio_anna
+			OUT "Pareggio"
+		ELSE //if punteggio_laura == punteggio_anna
+			OUT "Vince Anna"
+		END IF //punteggio_laura == punteggio_anna
+	END IF //punteggio_laura < punteggio_anna
+END PROG //main
