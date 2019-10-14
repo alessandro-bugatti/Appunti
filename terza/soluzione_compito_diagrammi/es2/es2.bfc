@@ -6,9 +6,9 @@ PROG main
 			ASSIGN risultato = risultato * 2
 		END FOR //i = 0; i < N; i = i + 1
 	ELSE //if N > 0
-		FOR i = 0; i > -N; i = i - 1
+		FOR i = 0; i < -N; i = i + 1
 			ASSIGN risultato = risultato * 1 / 2
-		END FOR //i = 0; i > -N; i = i - 1
+		END FOR //i = 0; i < -N; i = i + 1
 	END IF //N > 0
 	OUT risultato
 END PROG //main

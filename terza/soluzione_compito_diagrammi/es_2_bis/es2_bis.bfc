@@ -1,0 +1,18 @@
+PROG main
+	IN N
+	ASSIGN risultato = 1
+	ASSIGN positivo = 1
+	IF N < 0
+		ASSIGN N = -N
+		ASSIGN positivo = 0
+	ELSE //if N < 0
+	END IF //N < 0
+	FOR i = 0; i < N; i = i + 1
+		ASSIGN risultato = risultato * 2
+	END FOR //i = 0; i < N; i = i + 1
+	IF positivo == 1
+		OUT risultato
+	ELSE //if positivo == 1
+		OUT 1/risultato
+	END IF //positivo == 1
+END PROG //main
