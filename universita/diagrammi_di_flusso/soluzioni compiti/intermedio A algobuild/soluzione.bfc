@@ -1,0 +1,23 @@
+PROG main
+	DO_WHILE //a < 1
+		IN a
+	END DO_WHILE a < 1
+	DO_WHILE //b < 1
+		IN b
+	END DO_WHILE b < 1
+	IF a < b
+		ASSIGN min = a
+	ELSE //if a < b
+		ASSIGN min = b
+	END IF //a < b
+	ASSIGN i = 1
+	ASSIGN contatore = 0
+	DO_WHILE //i <= min
+		IF a % i == 0 && b % i == 0
+			ASSIGN contatore = contatore + 1
+		ELSE //if a % i == 0 && b % i == 0
+		END IF //a % i == 0 && b % i == 0
+		ASSIGN i = i + 1
+	END DO_WHILE i <= min
+	OUT contatore
+END PROG //main

@@ -1,0 +1,27 @@
+PROG main
+	IN a
+	IN b
+	IF a > b
+		ASSIGN temp = a
+		ASSIGN a = b
+		ASSIGN b = temp
+	ELSE //if a > b
+	END IF //a > b
+	IN N
+	ASSIGN medio = floor((a+b)/2)
+	ASSIGN prima = 0
+	ASSIGN seconda = 0
+	FOR i = 0; i < N; i = i + 1
+		IN numero
+		IF numero >= a && numero <= medio
+			ASSIGN prima = prima + 1
+		ELSE //if numero >= a && numero <= medio
+		END IF //numero >= a && numero <= medio
+		IF numero >= medio + 1 && numero <= b
+			ASSIGN seconda = seconda + 1
+		ELSE //if numero >= medio + 1 && numero <= b
+		END IF //numero >= medio + 1 && numero <= b
+	END FOR //i = 0; i < N; i = i + 1
+	OUT prima
+	OUT seconda
+END PROG //main
