@@ -28,5 +28,32 @@ package contocorrente;
 
 
 public class ContoCorrente {
-    public String Nominativo;
+    private String nominativo;
+    private int codice;
+    private float saldo;
+    /*
+    public ContoCorrente(){
+        this.nominativo = "No nome";
+        codice = -1;
+        saldo = 0;
+    }
+    */
+    public ContoCorrente(String nominativo){
+        this.nominativo = nominativo;
+        this.codice = (int)(Math.random()*1000000);
+    }
+    
+    public void deposita(float soldi){
+        if (soldi > 10000)
+            return;
+        this.saldo += soldi;
+    }
+    
+    public String toString()
+    {
+        String s = "Codice conto:" + codice + ". Questo conto corrente è di " + this.nominativo
+                + ". Il saldo è " + this.saldo + "\n";
+        return s;
+    }
+    
 }

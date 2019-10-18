@@ -15,9 +15,16 @@ public class EsercizioContoCorrente {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ContoCorrente c;
-        c = new ContoCorrente();
-        c.Nominativo = "Geppo Gepponi";
+        ContoCorrente c, b;
+        c = new ContoCorrente("Gino");
+        b = new ContoCorrente("Giorgia");
+        
+        System.out.println(c.toString());
+        System.out.println(b.toString());
+        b.deposita(100);
+        System.out.println(b.toString());
+        b.deposita(100000);
+        System.out.println(b.toString());
     }
     
 }
