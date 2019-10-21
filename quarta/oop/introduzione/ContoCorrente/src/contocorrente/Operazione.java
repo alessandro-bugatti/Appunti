@@ -43,10 +43,22 @@ public class Operazione {
     
     @Override
     public String toString(){
-        String s = "L'operazione è stata eseguita il " +
+        String s;
+        if (this.successo == true){
+            s = "L'operazione è stata eseguita il " +
                 timestamp + ". Il denaro mosso è di " + 
                 soldi + " € con il seguente motivo: " + 
                 motivo;
+        }
+        else{
+            s = "L'operazione non è andata a buon fine " + 
+                "in data" + 
+                timestamp.getDayOfMonth() + "/" + 
+                timestamp.getMonth() + "/" +
+                timestamp.getYear() +
+                " nel tentativo di muovere " +
+                + soldi + " €.";
+        }
         return s;
     }
 }
