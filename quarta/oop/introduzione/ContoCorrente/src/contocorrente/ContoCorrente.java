@@ -31,8 +31,8 @@ public class ContoCorrente {
     private String nominativo;
     private int codice;
     private float saldo;
-    private float operazioni[];
-    private int n_operazioni;
+    private EstrattoConto estratto;
+
     /*
     public ContoCorrente(){
         this.nominativo = "No nome";
@@ -43,33 +43,34 @@ public class ContoCorrente {
     public ContoCorrente(String nominativo){
         this.nominativo = nominativo;
         this.codice = (int)(Math.random()*1000000);
-        this.operazioni = new float[1000];
-        n_operazioni = 0;
+        this.estratto = new EstrattoConto();
     }
     
     public void deposita(float soldi){
-        if (soldi > 10000)
+        if (soldi > 10000){
+            estratto.aggiungiOperazione(soldi, "", false);
             return;
+        }
         this.saldo += soldi;
-        operazioni[n_operazioni] = soldi;
-        n_operazioni++;
+        estratto.aggiungiOperazione(soldi, "", true);
     }
     
     public void preleva(float soldi){
         if (this.saldo - soldi < 0)
             return;
         this.saldo -= soldi;
-        operazioni[n_operazioni] = -soldi;
-        n_operazioni++;
+    }
+    
+    public float getSaldo()
+    {
+        return saldo;
     }
     
     public String toString()
     {
         String s = "Codice conto:" + codice + ". Questo conto corrente è di " + this.nominativo
                 + ". Il saldo è " + this.saldo + "\n";
-        s += nominativo + " ha fatto le seguenti operazioni\n";
-        for (int i = 0; i < n_operazioni; i++)
-            s += operazioni[i] + "\n";
+        s += estratto;
         return s;
     }
     
