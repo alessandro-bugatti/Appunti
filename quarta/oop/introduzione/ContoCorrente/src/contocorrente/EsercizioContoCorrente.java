@@ -25,6 +25,8 @@ public class EsercizioContoCorrente {
         System.out.println(b.toString());
         b.deposita(100000);
         System.out.println(b.toString());
+        b.preleva(50);
+        System.out.println(b.toString());
     }
     
 }
