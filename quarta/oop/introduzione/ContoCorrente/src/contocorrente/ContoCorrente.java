@@ -49,6 +49,12 @@ public class ContoCorrente {
         this.saldo += soldi;
     }
     
+    public void preleva(float soldi){
+        if (this.saldo - soldi < 0)
+            return;
+        this.saldo -= soldi;
+    }
+    
     public String toString()
     {
         String s = "Codice conto:" + codice + ". Questo conto corrente è di " + this.nominativo
