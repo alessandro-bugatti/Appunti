@@ -47,6 +47,11 @@ public class EstrattoConto {
         n_operazioni++;
     }
     
+    public void aggiungiOperazione(Operazione op){
+        operazioni[n_operazioni] = op;
+        n_operazioni++;
+    }
+    
     public String toString(){
         String s = "Estratto conto\n";
         for (int i = 0; i < n_operazioni; i++)
