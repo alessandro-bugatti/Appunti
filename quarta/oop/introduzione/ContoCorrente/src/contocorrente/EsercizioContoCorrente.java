@@ -15,10 +15,9 @@ public class EsercizioContoCorrente {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ContoCorrente c, b;
+        ContoCorrente c, b, d;
         c = new ContoCorrente("Gino");
         b = new ContoCorrente("Giorgia");
-        
         System.out.println(c.toString());
         System.out.println(b.toString());
         b.deposita(100);
@@ -26,6 +25,12 @@ public class EsercizioContoCorrente {
         b.deposita(100000);
         b.preleva(50);
         System.out.println(b.toString());
+        System.out.println(c.toString());
+        d = c;
+        c = b;
+        System.out.println(b.toString());
+        System.out.println(c.toString());
+        System.out.println(d.toString());
        
     }
     
