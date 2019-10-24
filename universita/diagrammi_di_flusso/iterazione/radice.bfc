@@ -1,0 +1,14 @@
+PROG main
+	IN x
+	ASSIGN a = 0
+	ASSIGN b = x
+	WHILE b - a > 0.00001
+		ASSIGN m = (a + b) / 2
+		IF m * m > x
+			ASSIGN b = m
+		ELSE //if m * m > x
+			ASSIGN a = m
+		END IF //m * m > x
+	END WHILE //b - a > 0.00001
+	OUT m
+END PROG //main

@@ -1,0 +1,28 @@
+PROG main
+	IN N
+	ASSIGN pari = 0
+	ASSIGN dispari = 0
+	ASSIGN flag = 0
+	WHILE N > 0
+		ASSIGN M = floor(N/10)
+		ASSIGN cifra = N - M * 10
+		IF flag == 0
+			ASSIGN pari = pari + cifra
+			ASSIGN flag = 1
+		ELSE //if flag == 0
+			ASSIGN dispari = dispari + cifra
+			ASSIGN flag = 0
+		END IF //flag == 0
+		ASSIGN N = M
+	END WHILE //N > 0
+	IF pari - dispari < 0
+		ASSIGN N = dispari - pari
+	ELSE //if pari - dispari < 0
+		ASSIGN N = pari - dispari
+	END IF //pari - dispari < 0
+	IF N == 0
+		OUT "Divisibile per 11"
+	ELSE //if N == 0
+		OUT "Non divisibile per 11"
+	END IF //N == 0
+END PROG //main

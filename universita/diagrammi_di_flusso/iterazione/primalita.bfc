@@ -1,0 +1,15 @@
+PROG main
+	IN N
+	ASSIGN divisori = 0
+	FOR i = 2; i <= sqrt(N) && divisori == 0; i = i + 1
+		IF N % i == 0
+			ASSIGN divisori = divisori + 1
+		ELSE //if N % i == 0
+		END IF //N % i == 0
+	END FOR //i = 2; i <= sqrt(N) && divisori == 0; i = i + 1
+	IF divisori == 0
+		OUT "Primo"
+	ELSE //if divisori == 0
+		OUT "Non primo"
+	END IF //divisori == 0
+END PROG //main

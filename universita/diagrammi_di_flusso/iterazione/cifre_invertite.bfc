@@ -1,0 +1,12 @@
+PROG main
+	FOR i = 1; i <= 50; i = i + 1
+		ASSIGN M = 0
+		ASSIGN N = i
+		WHILE N > 0
+			ASSIGN cifra = N%10
+			ASSIGN M = M * 10 + cifra
+			ASSIGN N = floor (N / 10)
+		END WHILE //N > 0
+		OUT M
+	END FOR //i = 1; i <= 50; i = i + 1
+END PROG //main
