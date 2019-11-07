@@ -22,12 +22,17 @@ double potenza(double b, int e)
 int main()
 {
     double x = 0.98;
-    double coseno = 0;
+    double coseno = 0, seno = 0;
     int n;
     for (n = 0; n < 5; n++)
         coseno = coseno +
         potenza(-1, n) * potenza(x, 2*n)/
         fattoriale(2*n);
+    for (n = 0; n < 5; n++)
+        seno = seno +
+        potenza(-1, n) * potenza(x, 2*n + 1)/
+        fattoriale(2*n + 1);
     printf("%f\n", coseno);
+    printf("%f\n", seno);
     return 0;
 }
