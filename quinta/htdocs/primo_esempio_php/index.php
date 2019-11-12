@@ -1,10 +1,16 @@
-<?php
-$a = 0;
-for ($i = 0; $i < 10; $i++)
-    $a += $i;
-echo $a;
-while(1){
-    echo "ciao";
-     echo "<br>";
-}
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Primo esempio php</title>
+</head>
+<body>
+    <h1>Primo esempio di PHP</h1>
+    <?php
+    echo "<p>Oggi è il " . date("d-m-Y")."</p>";
+    $a = 4.2;
+    $a = $a + 7 ;
+    echo "<p>" . $a . "</p>";
+    ?>
+</body>
+</html>
