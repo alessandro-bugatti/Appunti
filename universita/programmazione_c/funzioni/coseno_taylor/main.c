@@ -36,3 +36,5 @@ int main()
     printf("%f\n", seno);
     return 0;
 }
+
+
