@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="414.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="esempiojavafxconvertitore.FXMLDocumentController">
+    <children>
+        <Button fx:id="button" layoutX="263.0" layoutY="125.0" onAction="#handleButtonAction" text="Converti" />
+        <Label fx:id="label" layoutX="278.0" layoutY="60.0" minHeight="16" minWidth="69" prefHeight="25.0" prefWidth="101.0" />
+      <ComboBox fx:id="cmbConversioni" layoutX="86.0" layoutY="125.0" prefWidth="150.0" promptText="Conversioni" />
+      <TextField fx:id="txtIniziale" layoutX="87.0" layoutY="60.0" />
+    </children>
+</AnchorPane>
