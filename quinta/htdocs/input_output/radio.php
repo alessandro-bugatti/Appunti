@@ -12,6 +12,12 @@
             $libro = $_GET["libro"];
             echo "</p>Il tuo libro preferito è " . $libro ."</p>";
         }
+        if (isset($_GET["film"]))
+        {
+            $film = $_GET["film"];
+            echo "</p>Il tuo film preferito è " . $film ."</p>";
+        }
+        var_dump($_GET);
     ?>
 </body>
 </html>
