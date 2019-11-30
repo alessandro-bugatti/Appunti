@@ -6,6 +6,9 @@
 
 package simulazionedistributore;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Alessandro Bugatti
@@ -44,5 +47,17 @@ public class Distributore {
         if (griglia[r-1][c-1].getMerendinePresenti() == 0)
             return -1;
         return griglia[r-1][c-1].getPrezzo();
+    }
+    
+    public void compraMerendina(int r, int c) throws FilaVuota
+    {
+        griglia[r][c].espelliMerendina();
+        //HANDLE
+        /*try {
+            griglia[r][c].espelliMerendina();
+        } catch (FilaVuota ex) {
+            System.out.println("Aiuto sono finite le merendine");
+            //Logger.getLogger(Distributore.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }
 }

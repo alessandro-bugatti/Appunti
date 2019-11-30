@@ -27,11 +27,12 @@ public class FilaMerendine {
         return qta;
     }
     
-    public void espelliMerendina()
+    public void espelliMerendina() throws FilaVuota
     {
+        if (qta == 0)
+            throw new FilaVuota();
         qta--;
-        if (qta < 0)
-            qta = 0;
+        
     }
     
     public float getPrezzo()
