@@ -30,7 +30,7 @@ public class FilaMerendine {
     public void espelliMerendina() throws FilaVuota
     {
         if (qta == 0)
-            throw new FilaVuota();
+            throw new FilaVuota(nome);
         qta--;
         
     }

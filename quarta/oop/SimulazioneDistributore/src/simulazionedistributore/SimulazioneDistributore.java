@@ -25,6 +25,7 @@ public class SimulazioneDistributore {
             try {
                 d.compraMerendina(0, 0);
             } catch (FilaVuota ex) {
+                System.out.println("Sono finite le merendine: " + ex);
                 //Logger.getLogger(SimulazioneDistributore.class.getName()).log(Level.SEVERE, null, ex);
             }
         System.out.println("Ciao");

@@ -11,5 +11,16 @@ package simulazionedistributore;
  * @author Alessandro Bugatti
  */
 public class FilaVuota extends Exception{
+    private String nomeMerendina;
 
+    public FilaVuota(String nomeMerendina) {
+        this.nomeMerendina = nomeMerendina;
+    }
+    @Override
+    public String toString()
+    {
+        return nomeMerendina;
+    }
+    
+    
 }
