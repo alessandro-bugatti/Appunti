@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simulazione del compito degli alberi</title>
+</head>
+<body>
+    <h1>Alberi</h1>
+    <p>Questo programma ti permetterà di fare un preventivo del costo per piantare degli alberi</p>
+    <form action="alberi.php" method="post">
+        <p>Metratura
+            <input type="text" name="metratura">
+        </p>
+        <p>Tipo di albero</p>
+        <input type="radio" name="tipo" value="pino">Pino<br>
+        <input type="radio" name="tipo" value="cipresso">Cipresso<br>
+        <input type="radio" name="tipo" value="abete">Abete<br>
+        <p>Densità</p>
+        <select name="densita">
+            <option value="bassa">Bassa</option>
+            <option value="media">Media</option>
+            <option value="alta">Alta</option>
+        </select><br>
+        <input type="submit" value="Invia i dati">
+    </form>
+</body>
+</html>
