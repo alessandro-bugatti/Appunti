@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Scegli il tuo album e fai un preventivo</h1>
+    <p>Scegli il tipo di album</p>
+    <form action="preventivo.php" method="post">
+        <p>
+            <input type="radio" name="tipo" value="fotografica">Libro con copertina fotografica (a partire da 14.95 euro)<br>
+            <input type="radio" name="tipo" value="pelle">Fotolibro in pelle (a partire da 19.95 euro)<br>
+            <input type="radio" name="tipo" value="finestra">Fotolibro con finestra (a partire da 24.95 euro)<br>
+            <p>
+                <select name="formato">
+                    <option>A3</option>
+                    <option>A4</option>
+                    <option>A5</option>
+                </select>
+            </p>
+            <p>Numero di pagine aggiuntive
+            <input type="text" name="pagine_aggiuntive">
+            </p>
+            <p>Dedica in prima pagina</p>
+            <textarea name="dedica" rows="8" cols="80">Inserisci il tuo pensiero</textarea>
+            <p><input type="submit" value="Invia i dati"></p>
+        </p>
+
+    </form>
+
+</body>
+</html>
