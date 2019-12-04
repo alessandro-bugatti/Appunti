@@ -1,0 +1,2 @@
+Euro;Sterlina;0.92
+Sterlina;Euro;1.12
