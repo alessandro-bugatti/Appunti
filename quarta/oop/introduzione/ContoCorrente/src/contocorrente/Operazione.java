@@ -26,9 +26,10 @@
 
 package contocorrente;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Operazione {
+public class Operazione implements Serializable{
     private float soldi;
     private String motivo;
     private LocalDateTime timestamp;

@@ -5,11 +5,13 @@
  */
 package contocorrente;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Usanza Stefano
  */
-public class ContoCorrente {
+public class ContoCorrente implements Serializable{
     private String nominativo; //private viene visto solo all'interno della classe corrente
     private int codice; 
     private float soldiPresenti;

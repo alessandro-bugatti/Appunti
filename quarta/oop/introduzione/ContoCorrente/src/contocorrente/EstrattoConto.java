@@ -26,8 +26,10 @@
 
 package contocorrente;
 
+import java.io.Serializable;
 
-public class EstrattoConto {
+
+public class EstrattoConto implements Serializable{
     private Operazione operazioni[];
     private int n_operazioni;
     
