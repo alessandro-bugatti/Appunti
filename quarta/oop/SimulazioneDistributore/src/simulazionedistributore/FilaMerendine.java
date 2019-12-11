@@ -6,11 +6,13 @@
 
 package simulazionedistributore;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Alessandro Bugatti
  */
-public class FilaMerendine {
+public class FilaMerendine implements Serializable{
     private String nome;
     private float costo;
     private int qta;
@@ -45,4 +47,11 @@ public class FilaMerendine {
         if (n > 0)
             qta += n;
     }
+
+    @Override
+    public String toString() {
+        return "FilaMerendine{" + "nome=" + nome +
+                ", costo=" + costo + ", qta=" + qta + '}';
+    }
+    
 }

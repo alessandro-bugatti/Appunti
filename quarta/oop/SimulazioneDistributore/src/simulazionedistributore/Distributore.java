@@ -6,6 +6,7 @@
 
 package simulazionedistributore;
 
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Alessandro Bugatti
  */
-public class Distributore {
+public class Distributore implements Serializable{
 
     private FilaMerendine griglia[][];
     private int n_righe;
@@ -24,6 +25,19 @@ public class Distributore {
         griglia = new FilaMerendine[n_righe][n_colonne];
         this.n_righe = n_righe;
         this.n_colonne = n_colonne;
+    }
+    
+    public boolean inserisciFila(FilaMerendine f){
+        for(int i=0; i < n_righe; i++){
+            for(int j=0; j < n_colonne; j++)
+                if(griglia[i][j] == null || 
+                        griglia[i][j].getMerendinePresenti() == 0){
+                    griglia[i][j]=f;
+                    return true;
+                }
+                    
+        }
+        return false;
     }
     
     public boolean inserisciFila(FilaMerendine f, int r, int c)
@@ -59,5 +73,18 @@ public class Distributore {
             System.out.println("Aiuto sono finite le merendine");
             //Logger.getLogger(Distributore.class.getName()).log(Level.SEVERE, null, ex);
         }*/
+    }
+    
+    public String toString(){
+        String s;
+        s = "Righe: " + n_righe + " Colonne: " +
+                n_colonne;
+        for (int i = 0; i < n_righe; i++)
+            for (int j = 0; j < n_colonne; j++)
+                if (griglia[i][j] != null)
+                    s += "\n" + i + " " + j + " " + 
+                            griglia[i][j];
+        
+        return s;
     }
 }
