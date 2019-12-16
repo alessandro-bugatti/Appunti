@@ -13,7 +13,7 @@ Tenere un diario (su carta o al computer) con il lavoro svolto giorno per giorno
 
 Il ritmo di lavoro **deve** essere il seguente: ogni giorno possono essere svolti **al massimo** 5 degli esercizi sotto riportati e **al massimo** 2 degli esercizi più complessi presi a scelta dal libro di testo o dal mio sito [www.imparando.net](https://www.imparando.net/sito/introduzione_alla_programmazione_in_C.htm). Se un giorno si salta non si possono comunque recuperare gli esercizi nel giorno successivo, quindi non pensate di fare 50 esercizi l'ultimo giorno (o copiarli da qualcuno che li ha fatti), non perchè io possa accorgermene (non posso), bensì perchè è inutile.
 
-##Istruzioni di I/O
+## Istruzioni di I/O
 In questa serie di esercizi viene richiesto di usare solo le istruzioni di I/O e le operazioni aritmetiche fondamentali.
 * Chiedere all'utente di inserire una variabile intera e poi stamparla
 * Chiedere all'utente di inserire una variabile float e poi stamparla
@@ -27,7 +27,7 @@ In questa serie di esercizi viene richiesto di usare solo le istruzioni di I/O e
 * Chiedere all'utente di inserire due variabili intere di valore compreso tra un miliardo e due miliardi e stamparle, successivamente stamparne la somma, la differenza e il prodotto, interpretando i risultati ottenuti
 * Chiedere all'utente di inserire due variabili double di valore compreso tra un miliardo e due miliardi e stamparle, successivamente stamparne la somma, la differenza e il prodotto, interpretando i risultati ottenuti
 
-##Selezione
+## Selezione
 In questa serie di esercizi viene richiesto di usare solo le istruzioni di I/O e i costrutti di selezione (*if*, *if-else*)
 * Chiedere all'utente di inserire due variabili intere e stampare la maggiore tra le due
 * Chiedere all'utente di inserire due variabili intere e stampare quelle con valore positivo (tutte e due, solo una o nessuna)
@@ -41,7 +41,7 @@ In questa serie di esercizi viene richiesto di usare solo le istruzioni di I/O e
 * Chiedere all'utente di inserire un numero compreso tra 1 e 12 che rappresenta un mese (1-gennaio, 2-febbraio ecc.) e stampare il numero di giorni che contiene quel mese, ignorardo il giorno bisestile.
 
 
-##Iterazione
+## Iterazione
 In questa serie di esercizi viene richiesto di usare solo le istruzioni di I/O, i costrutti di selezione (*if*, *if-else*) e quelli di iterazione (*for*, *while*, *do-while*)
 * Chiedere all'utente di inserire una serie di numeri interi e terminare l'inserimento al primo numero negativo inserito. Stampare quanti numeri sono stati inseriti
 * Chiedere all'utente di inserire due numeri positivi, facendoli reinserire se sono negativi, in modo che alla fine risultino entrambi positivi. Mostrare poi la loro somma.
@@ -61,7 +61,7 @@ In questa serie di esercizi viene richiesto di usare solo le istruzioni di I/O, 
 *  Chiedere all'utente di inserire un numero N positivo e due numeri float A e B. Successivamente far inserire N numeri float e contare quanti sono i valori inseriti compresi tra A e B
 
 
-##Funzioni
+## Funzioni
 In questa serie di esercizi viene richiesto di usare tutto quanto visto in precedenza, includendo all'interno di funzioni.
 Di tutte le funzioni richieste scrivere inoltre un breve programma che ne dimostri la correttezza.
 * Scrivere una funzione che faccia la somma tra due numeri interi e ne ritorni il risultato
