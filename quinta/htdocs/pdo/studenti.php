@@ -28,6 +28,57 @@
         }
         echo "</ul></p>";
 
+        //Invio di una query non costante nel modo non corretto
+        $id = $_GET['id'];
+        $sql = 'SELECT * FROM studenti WHERE id > ' . $id;
+        echo "<p>La query non costante è <strong>" . $sql . "</strong></p>";
+        $stmt = $pdo->query($sql);
+
+        //Visualizzazione dell'elenco degli studenti
+        echo "<p><h4>Elenco degli studenti</h4><ul>";
+        //Itera su ogni riga della tabella
+        while($row = $stmt->fetch())
+        {
+            echo "\t\t<li>" . $row['nome'] . ', ' . $row['cognome'] . '</li>' . "\n" ;
+        }
+        echo "</ul></p>";
+
+        //Invio di una query non costante nel modo corretto
+
+        $stmt = $pdo->prepare('SELECT * FROM studenti WHERE id > :id_scelto');
+
+        $stmt->execute(['id_scelto' => $id]);
+        $sql = 'SELECT * FROM studenti WHERE id > ' . $id;
+        echo "<p>La query non costante è <strong>" . $sql . "</strong></p>";
+
+        //Visualizzazione dell'elenco degli studenti
+        echo "<p><h4>Elenco degli studenti</h4><ul>";
+        //Itera su ogni riga della tabella
+        while($row = $stmt->fetch())
+        {
+            echo "\t\t<li>" . $row['nome'] . ', ' . $row['cognome'] . '</li>' . "\n" ;
+        }
+        echo "</ul></p>";
+
+        //Invio di una query non costante nel modo corretto
+        //Stesso esempio con più parametri
+        $stmt = $pdo->prepare('SELECT * FROM studenti WHERE id > :id1 AND id < :id2');
+        $id2 = $_GET['id2'];
+
+        $stmt->execute(['id1' => $id, 'id2' => $id2]);
+        $sql = 'SELECT * FROM studenti WHERE id > ' . $id . ' AND id < ' . $id2;
+        echo "<p>La query non costante è <strong>" . $sql . "</strong></p>";
+
+        //Visualizzazione dell'elenco degli studenti
+        echo "<p><h4>Elenco degli studenti</h4><ul>";
+        //Itera su ogni riga della tabella
+        while($row = $stmt->fetch())
+        {
+            echo "\t\t<li>" . $row['nome'] . ', ' . $row['cognome'] . '</li>' . "\n" ;
+        }
+        echo "</ul></p>";
+
+
     ?>
 </body>
 </html>
