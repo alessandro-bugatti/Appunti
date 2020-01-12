@@ -10,14 +10,14 @@ function allStudents($pdo, $header)
         echo $row['nome'] . ' ' . $row['cognome'] . "<br>";
     }
     echo '<hr>';
-    
+
 }
 
 ini_set('display_errors', 1);
 ini_set('log_errors', 0);
 
 $host = 'localhost';
-$db   = 'c9';
+$db   = 'accesso';
 $user = 'root';
 $pass = '';
 $charset = 'utf8';
