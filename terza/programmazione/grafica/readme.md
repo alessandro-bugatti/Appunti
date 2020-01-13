@@ -1,4 +1,4 @@
-#Programmi grafici con libreria VSGL2
+# Programmi grafici con libreria VSGL2
 
 Si ricorda che tutti i programmi presenti in  questa sezione per funzionare hanno bisogno di essere spostati nella cartella myApps all'interno della cartella della libreria VSGL2 scaricata da GitHub e installata secondo le istruzioni presenti qua sotto.
 
