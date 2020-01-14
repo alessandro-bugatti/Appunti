@@ -8,7 +8,14 @@
     <?php
         require_once('config.php');
         $ISBN = $_POST['ISBN'];
-        $titolo = $_POST['titolo'];
+        /*Le variabili che arrivano dall'esterno
+        sono sempre pericolose. Nei nostri esempi
+        solo sporadicamente le controlleremo, qua
+        sotto c'è un esempio di controllo e
+        sostituzione, ma è solo un esempio, non una
+        soluzione universale, che invece va studiata
+        caso per caso.*/
+        $titolo = htmlspecialchars($_POST['titolo']);
         $lingua = $_POST['lingua'];
         $anno = $_POST['anno'];
         $prezzo = $_POST['prezzo'];
