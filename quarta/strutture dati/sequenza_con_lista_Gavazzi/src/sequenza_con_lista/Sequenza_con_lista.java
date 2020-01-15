@@ -32,7 +32,25 @@ public class Sequenza_con_lista {
         System.out.println(s);
         s.inserimentoInPosizione(4, 2);
         System.out.println(s);
+        s.cancellaInPosizione(0);
+        System.out.println(s);
+        s.cancellaInPosizione(s.sizeNodi()-1);
+        System.out.println(s);
+        s.cancellaInPosizione(2);
+        System.out.println(s);
+        System.out.println(s.getItem(0));
         
+        
+        Sequenza r = new Sequenza();
+        int dimensione = 100000;
+        for(int i=0; i< dimensione; i++){
+            r.inserimentoInTesta(i);
+        }
+        int somma = 0;
+        for(int i=0; i< dimensione; i++){
+            somma+= r.getItem(i);
+        }
+        System.out.println(somma);
     }
     
 }

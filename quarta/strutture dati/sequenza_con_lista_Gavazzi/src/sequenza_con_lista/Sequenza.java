@@ -72,6 +72,32 @@ public class Sequenza {
         }
             
     }
+    //Usanza Stefano
+    public void cancellaInPosizione(int pos){
+        if (pos < 0 || pos > n_nodi-1)
+            return;
+        if (pos ==0)
+            cancellazioneInTesta();
+        else {
+            Nodo temp = head;
+            for (int i=0; i< pos-1; i++){
+                temp = temp.getNext();
+            }
+            temp.setNext(temp.getNext().getNext());
+            n_nodi--;
+        }
+    }
+    
+    public Integer getItem(int pos){
+        if (pos <0 || pos > n_nodi-1)
+            return null;
+        Nodo temp = head;
+        for (int i=0; i< pos; i++){
+            temp = temp.getNext();
+        }
+        return temp.getInfo();
+    }
+    
     public int sizeNodi(){
         return n_nodi;
     }
