@@ -47,8 +47,31 @@ public class Sequenza {
         }
         temp.setNext(new Nodo(n));
         n_nodi++;
+        
+        
     }
-    
+    //autore Jacopo Zuccalà
+    // se la posizione non è corretta non viene fatto nulla
+    public void inserimentoInPosizione(int n, int pos){
+        if(pos < 0 || pos > n_nodi)
+            return;
+        if(pos == 0)
+            inserimentoInTesta(n);
+        else if(pos == n_nodi)
+            inserimentoInCoda(n);    
+        else{
+            Nodo temp = head;
+            for(int i = 0;i < pos-1;i++){
+                temp = temp.getNext();
+            }
+            Nodo temp2;
+            temp2 = temp.getNext();
+            temp.setNext(new Nodo(n));
+            temp.getNext().setNext(temp2);
+            n_nodi++;
+        }
+            
+    }
     public int sizeNodi(){
         return n_nodi;
     }

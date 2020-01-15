@@ -22,9 +22,15 @@ public class Sequenza_con_lista {
         s.inserimentoInTesta(7);
         System.out.println(s);
         System.out.println(s);
-        for(int i=0;i<0;i++)
+        for(int i=0;i<1;i++)
             s.cancellazioneInTesta();
         s.inserimentoInCoda(10);
+        System.out.println(s);
+        s.inserimentoInPosizione(2, 0);
+        s.inserimentoInPosizione(9, s.sizeNodi());
+        System.out.println("test inseriment in posizione");
+        System.out.println(s);
+        s.inserimentoInPosizione(4, 2);
         System.out.println(s);
         
     }
