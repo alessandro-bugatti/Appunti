@@ -12,23 +12,33 @@ package pila_maniu;
  */
 public class Pila {
 private Sequenza s = new Sequenza();
+private int nNodi = 0;
 
 public int Size(){
-return s.sizeNodi();
+return nNodi;
 }
 
 public boolean isEmpty(){
-return s.sizeNodi() == 0;
+return nNodi == 0;
 }
 
 public void Push(int a){
 s.inserimentoInTesta(a);
+nNodi++;
 }
 
 public Integer Pop(){
 Integer a = s.getItem(0);
 s.cancellazioneInTesta();
+if (nNodi > 0)
+    nNodi--;
 return a;
+}
+
+@Override
+public String toString()
+{
+    return s.toString();
 }
 
 
