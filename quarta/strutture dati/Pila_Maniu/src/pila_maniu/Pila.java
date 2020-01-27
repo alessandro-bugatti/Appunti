@@ -11,8 +11,12 @@ package pila_maniu;
  * @author Alessandro Bugatti
  */
 public class Pila {
-private Sequenza s = new Sequenza();
+private Sequenza s;
 private int nNodi = 0;
+
+public Pila(){
+    s = new Sequenza();
+}
 
 public int Size(){
 return nNodi;
