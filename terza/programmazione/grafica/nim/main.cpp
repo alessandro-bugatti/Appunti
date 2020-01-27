@@ -10,7 +10,11 @@ using namespace vsgl2::video;
 using namespace vsgl2::utils;
 using namespace vsgl2::ttf_fonts;
 
-void inizializza_gioco(int v[], int n)
+const int N_ROWS = 5;
+const int IMAGE_W = 20;
+const int IMAGE_H = 480/N_ROWS;
+
+void game_init(int v[], int n)
 {
     int j = 1;
     for (int i = 0; i < n; i++)
@@ -19,39 +23,55 @@ void inizializza_gioco(int v[], int n)
         j = j + 2;
     }
 }
-void disegna_riga(int pos, int n)
+
+void draw_object(int x, int y)
 {
-    for (int i = 0; i < n; i++)
-        draw_filled_rect(10 + i*30, 10 + pos*100,10,60,Color(255,0,0,255));
+    draw_image("match.png",x,y, IMAGE_W, IMAGE_H,255);
 }
 
-void disegna_gioco(int v[], int n)
+void draw_row(int pos, int n)
+{
+    int delta_x = get_window_width() / (N_ROWS*2 + 1);
+    int delta_y = get_window_height() / N_ROWS;
+    for (int i = 0; i < n; i++)
+        draw_object(10 + i*delta_x, 10 + pos*delta_y);
+}
+
+void draw_game(int v[], int n)
 {
     for (int i = 0; i < n; i++)
-        disegna_riga(i, v[i]);
+        draw_row(i, v[i]);
+}
+
+void check_input(int x, int y, int v[])
+{
+    int row = y/(get_window_height()/N_ROWS);
+    int n = x/(get_window_width()/(N_ROWS*2 + 1)) - 1;
+    if (v[row] > n)
+        v[row] = n + 1;
 }
 
 int main(int argc, char* argv[]) {
-    const int N = 4;
-    int nim[N];
-    inizializza_gioco(nim, N);
+
+    int nim[N_ROWS];
     char coordinates[20];
     //init the library
     init();
+    SDL_ShowCursor(SDL_DISABLE);
+
     //create the window and show it
-    set_window(512,512,"Vsgl2 mouse movements");
+    set_window(512,512,"Vsgl2 Nim");
     int x = get_mouse_x();
     int y = get_mouse_y();
+    game_init(nim, N_ROWS);
     while(!done())
     {
-        sprintf(coordinates,"(%3d, %3d)",x ,y );
-        draw_text("audiowide.ttf",20,coordinates,
-                  x  - text_width("audiowide.ttf", 20 ,coordinates),
-                  y - text_height("audiowide.ttf", 20, coordinates),
-                  Color(0,0,0,255));
         x = get_mouse_x();
         y = get_mouse_y();
-        disegna_gioco(nim, N);
+        draw_game(nim, N_ROWS);
+        draw_image("hand.png", x-25, y-25, 50, 50, 100);
+        if (mouse_left_button_pressed())
+            check_input(x,y,nim);
         update();
         delay(2);
     }
