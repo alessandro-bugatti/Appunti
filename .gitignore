@@ -43,3 +43,8 @@
 /quarta/**/nbproject/private/
 /quarta/**/build/
 /quarta/**/dist/
+
+# Progetti esclusi
+/quinta/htdocs/poste/
+/quinta/htdocs/tennis/
+/quinta/htdocs/ask_mvc/
