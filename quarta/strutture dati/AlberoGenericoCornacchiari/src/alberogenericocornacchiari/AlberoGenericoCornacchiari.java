@@ -29,11 +29,18 @@ public class AlberoGenericoCornacchiari {
         a.Inserisci('c', 'h');
         a.Inserisci('c', 'i');
         a.Inserisci('d', 'l');
-        System.out.println(a.size());
+        System.out.println("Numero nodi: " + a.size());
         System.out.print("\nVisita anticipata\n");
         a.visitaAnticipata();
         System.out.print("\nVisita differita\n");
         a.visitaDifferita();
+        
+        System.out.println("Numero nodi versione ricorsiva: " + a.numero_nodi());
+        System.out.println("Altezza albero versione ricorsiva: " + a.altezza()
+        );
+        a.Inserisci('e', 'r');
+        System.out.println("Altezza albero versione ricorsiva: " + a.altezza()
+        );
     }
     
 }

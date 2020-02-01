@@ -89,4 +89,57 @@ public class Albero {
         }  
         System.out.print(attuale.info + " ");
     }
+    
+    public int numero_nodi()
+    {
+        //Versione corretta, ma invece useremo la 
+        //versione ricorsiva
+        //return quantiNodi;
+        return numero_nodiR(root);
+    }
+    
+    private int numero_nodiR(Nodo n)
+    {
+        if (n == null)
+            return 0;
+        return 1 + numero_nodiR(n.figlio) +
+                numero_nodiR(n.fratello);
+    }
+    
+    public int altezza()
+    {
+        return altezzaR(root);
+    }
+    
+    private int altezzaR(Nodo n)
+    {
+        if (n == null)
+            return 0;
+        Nodo temp = n.figlio;
+        int max = 0;
+        while(temp != null)
+        {
+            int h = altezzaR(temp);
+            if (h > max)
+                max = h;
+            temp = temp.fratello;
+        }
+        return max + 1;
+    }
+    
+    public int conta_vocali()
+    {
+        return conta_vocaliR(root);
+    }
+    
+    private int conta_vocaliR(Nodo n)
+    {
+        if (n == null)
+            return 0;
+        int v = 0;
+        if (n.info == 'a' || n.info == 'e' )//ecc.
+            v = 1;
+        return v + conta_vocaliR(n.figlio) + 
+                conta_vocaliR(n.fratello);
+    }
 }
