@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
     char coordinates[20];
     //init the library
     init();
-    SDL_ShowCursor(SDL_DISABLE);
+    hide_mouse_cursor();
 
     //create the window and show it
     set_window(512,512,"Vsgl2 Nim");
