@@ -24,6 +24,7 @@ public class AlberoBinarioRicerca {
         a.inserisci(8);
         System.out.println(a.ricerca(8));
         System.out.println(a.ricerca(19));
+        a.visitaSimmetrica();
     }
     
 }

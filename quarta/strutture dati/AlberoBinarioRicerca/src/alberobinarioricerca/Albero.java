@@ -55,4 +55,18 @@ public class Albero {
         else
             return ricercaR(nodo.dx, n);
     }
+    
+    public void visitaSimmetrica()
+    {
+        visitaSimmetricaR(root);
+    }
+    
+    private void visitaSimmetricaR(Nodo nodo)
+    {
+        if (nodo == null)
+            return;
+        visitaSimmetricaR(nodo.sx);
+        System.out.println(nodo.info);
+        visitaSimmetricaR(nodo.dx);
+    }
 }
