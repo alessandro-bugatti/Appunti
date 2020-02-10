@@ -65,9 +65,12 @@ public class Sequenza {
                 temp = temp.getNext();
             }
             Nodo temp2;
-            temp2 = temp.getNext();
+            /*temp2 = temp.getNext();
             temp.setNext(new Nodo(n));
-            temp.getNext().setNext(temp2);
+            temp.getNext().setNext(temp2);*/
+            temp2 = new Nodo(n);
+            temp2.setNext(temp.getNext());
+            temp.setNext(temp2);
             n_nodi++;
         }
             
