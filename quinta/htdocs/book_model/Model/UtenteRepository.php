@@ -31,6 +31,17 @@ class UtenteRepository
             return null;
     }
 
+    public function getUtenti() : array
+    {
+        $pdo = Connection::getInstance();
+        $stmt = $pdo->query('SELECT * FROM utente ORDER BY cognome');
+        $result = array();
+        foreach ($stmt as $row)
+            $result[] = new Utente($row['ID'],$row['nome'], $row['cognome']);
+        return $result;
+    }
+
+
     public function salva(Utente $utente) : ?Utente
     {
         $pdo = Connection::getInstance();

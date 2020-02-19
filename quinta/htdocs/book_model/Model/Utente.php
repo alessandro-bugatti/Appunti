@@ -70,4 +70,9 @@ class Utente
     {
         return $this->libri;
     }
+
+    public function aggiungiPrestito(Libro $libro) : void
+    {
+        $this->libri[] = $libro;
+    }
 }
