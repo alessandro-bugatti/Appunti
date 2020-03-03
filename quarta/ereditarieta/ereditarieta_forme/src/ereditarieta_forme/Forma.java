@@ -20,4 +20,9 @@ public class Forma {
         this.x = x;
         this.y = y;
     }
+    
+    public double getArea()
+    {
+        return 0;
+    }
 }
