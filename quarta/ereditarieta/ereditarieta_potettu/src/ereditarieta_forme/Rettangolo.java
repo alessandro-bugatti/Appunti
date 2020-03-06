@@ -2,7 +2,7 @@ package ereditarieta_forme;
 
 public class Rettangolo extends Poligono
 {
-    private int base;
+    protected int base;
     private int altezza;
     
     public Rettangolo(String colore, int x, int y, int base, int altezza)

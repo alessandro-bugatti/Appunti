@@ -9,4 +9,9 @@ public class Poligono extends Forma
         super(colore, x, y);
         this.numeroLati = numeroLati;
     }
+    
+    int numeroLati()
+    {
+        return numeroLati;
+    }
 }

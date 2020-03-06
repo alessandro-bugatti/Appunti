@@ -7,4 +7,6 @@ public class Quadrato extends Rettangolo
         super(colore, x, y, lato, lato);
     }
     
+    
+    
 }

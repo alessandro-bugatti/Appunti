@@ -1,6 +1,6 @@
 package ereditarieta_forme;
 
-abstract public class Forma
+public class Forma
 {
     private String colore;
     private int x;
