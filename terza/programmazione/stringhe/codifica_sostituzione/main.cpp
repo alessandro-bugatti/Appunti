@@ -12,6 +12,7 @@ void cifra(char chiaro[], char chiave[], char cifrato[])
 
 int main()
 {
+    char alfabeto = "abcdef...";
     char chiave[] = "qwrtyuioplekjhgfdsazxcvbnm";
     char testo[] = "domaniattacchiamoallalba";
     char cifrato[1000];
