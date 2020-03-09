@@ -19,7 +19,11 @@ int conta_parole(char s[])
 //Implementare per la prossima volta
 void my_strcpy(char d[], char s[]);//Copia s sopra d
 void my_strcat(char d[], char s[]);//Concatena s dopo d
+//Ritorna un valore negativo per indicare che d < s
+//Ritorna 0 per indicare che d = s
+//Ritorna un valore positivo se d > s
 int my_strcmp(char d[], char s[]);
+
 
 int main()
 {
