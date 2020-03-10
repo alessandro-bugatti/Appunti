@@ -24,7 +24,8 @@ int main()
     stringa = stringa + "-" + s2;
     cout << stringa << endl;
     for (int i = 0; i < stringa.size(); i++)
-        if (stringa[i+1] == 'e')
-            cout << "e presente" << endl;
+        if (stringa.at(i) == 'e')
+            cout << "la lettera e si trova in posizione "
+            << i << endl;
     return 0;
 }
