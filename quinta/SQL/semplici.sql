@@ -65,13 +65,25 @@ FROM country, city
 WHERE country.Code = city.CountryCode
 AND country.Name = "AFGHANISTAN"
 
--- Superficie dello stato più grande
+-- Superficie dello stato più grande e di quello più piccolo
+SELECT MAX(country.SurfaceArea) AS superficie_massima, MIN(country.SurfaceArea)
+FROM country
 
+-- Quante persone parlano italiano in America
 
--- Quante persone parlano italiano negli Stati Uniti
+SELECT SUM(country.Population*countrylanguage.Percentage/100) AS Italians FROM country, countrylanguage WHERE (country.Continent = "North America" OR country.Continent = "South America") AND countrylanguage.CountryCode = country.Code AND countrylanguage.Language = "Italian" 
+
 
 -- Quanto è la superficie dell'Asia
 
+SELECT SUM(SurfaceArea) AS SUPERFICIE_ASIA FROM country WHERE Continent = "Asia"
+
+
 -- Quanto è il reddito procapite medio in Europa
 
+SELECT AVG(GNP*1000000/Population) AS `reddito pro capite in $` FROM `country` WHERE Continent = "Europe"
+
 -- Quante lingue sono parlate in Cina
+
+SELECT COUNT(countrylanguage.Language) AS N_Lingue FROM country, countrylanguage WHERE country.Code = countrylanguage.CountryCode AND country.Name = "China"
+
