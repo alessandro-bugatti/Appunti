@@ -87,3 +87,28 @@ SELECT AVG(GNP*1000000/Population) AS `reddito pro capite in $` FROM `country` W
 
 SELECT COUNT(countrylanguage.Language) AS N_Lingue FROM country, countrylanguage WHERE country.Code = countrylanguage.CountryCode AND country.Name = "China"
 
+-- Query di raggruppamento
+
+-- La superficie totale di ogni regione della terra, così come sono suddivise nel DB
+
+SELECT Continent, Region, SUM(SurfaceArea) AS Superficie 
+FROM country
+GROUP BY Continent, Region
+ORDER BY Superficie DESC
+
+-- Numero di lingue parlate in ogni stato ordinate per nome
+SELECT country.Name, COUNT(*) AS Numero_lingue 
+FROM countrylanguage, country
+WHERE countrylanguage.CountryCode = country.Code
+GROUP BY country.Name
+ORDER BY country.Name
+
+
+-- Numero di lingue parlate in ogni stato in cui si parlano più di 9 lingue
+-- ordinate per nome
+SELECT country.Name, COUNT(*) AS Numero_lingue 
+FROM countrylanguage, country
+WHERE countrylanguage.CountryCode = country.Code
+GROUP BY country.Name
+HAVING Numero_lingue > 9
+ORDER BY country.Name
