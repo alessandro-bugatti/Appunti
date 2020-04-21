@@ -112,3 +112,31 @@ WHERE countrylanguage.CountryCode = country.Code
 GROUP BY country.Name
 HAVING Numero_lingue > 9
 ORDER BY country.Name
+
+-- Query 10 di raggruppamento
+
+SELECT country.Name AS Name,COUNT(*) AS N_CITTA ,AVG(city.Population) AS P_MEDIA 
+FROM country,city 
+WHERE country.Code = city.CountryCode 
+GROUP BY Name 
+ORDER BY N_CITTA DESC,Name
+
+
+-- Query 12 di raggruppamento
+
+SELECT GovernmentForm AS Governo,
+COUNT(*) AS N_Stati,
+AVG(country.GNP) AS PIL_Medio
+FROM `country` 
+WHERE country.GNP > 0
+GROUP BY country.GovernmentForm
+ORDER BY GovernmentForm
+
+-- Primo esempio di sottoquery
+
+SELECT country.Name, country.Population 
+FROM `country`
+WHERE country.Population = (SELECT MIN(country.Population)
+                            FROM country)
+
+-- 
