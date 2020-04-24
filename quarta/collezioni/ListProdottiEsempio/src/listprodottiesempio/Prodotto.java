@@ -109,6 +109,31 @@ public class Prodotto {
     public String toString() {
         return "Prodotto{" + "Codice=" + Codice + ", Nome=" + Nome + ", prezzo=" + prezzo + '}';
     }
-   
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Prodotto other = (Prodotto) obj;
+        if (Double.doubleToLongBits(this.prezzo) != Double.doubleToLongBits(other.prezzo)) {
+            return false;
+        }
+        if (!Objects.equals(this.Codice, other.Codice)) {
+            return false;
+        }
+        if (!Objects.equals(this.Nome, other.Nome)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     
 }
