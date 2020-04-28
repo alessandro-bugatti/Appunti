@@ -52,5 +52,22 @@ public class ListProdottiEsempio {
         lista.retainAll(lista2);
         System.out.println(lista);
         
+        lista.add(1, new Prodotto());
+        System.out.println(lista);
+        Prodotto prova = lista.get(1);
+        System.out.println(prova);
+        prova.setCodice("MIOCODICE");
+        System.out.println(lista);
+        int n = lista.indexOf(prova);
+        Prodotto copia = new Prodotto(prova);
+        System.out.println(n);
+        n = lista.indexOf(copia);
+        System.out.println(n);
+        copia.setCodice("ALTROCODICE");
+        n = lista.indexOf(copia);
+        System.out.println(n);
+        lista.add(0, new Prodotto());
+        n = lista.indexOf(prova);
+        System.out.println(n);
     }
 }

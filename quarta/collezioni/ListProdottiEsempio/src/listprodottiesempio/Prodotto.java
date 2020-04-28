@@ -107,7 +107,7 @@ public class Prodotto {
 
     @Override
     public String toString() {
-        return "Prodotto{" + "Codice=" + Codice + ", Nome=" + Nome + ", prezzo=" + prezzo + '}';
+        return "Prodotto{" + "Codice=" + Codice + "}";// + ", Nome=" + Nome + ", prezzo=" + prezzo + '}';
     }
 
     @Override
@@ -134,6 +134,12 @@ public class Prodotto {
         return true;
     }
     
+    public Prodotto(Prodotto a)
+    {
+        this.Codice = a.Codice;
+        this.Nome = a.Nome;
+        this.prezzo = a.prezzo;
+    }
     
     
 }
