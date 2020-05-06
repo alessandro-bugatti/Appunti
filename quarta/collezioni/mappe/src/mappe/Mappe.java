@@ -43,6 +43,27 @@ public class Mappe {
         for (Prodotto pr: prodotti)
             System.out.println(pr);
         
+        
+        System.out.println("Utilizzo del metodo entrySet");
+        Set<Map.Entry<String,Prodotto>> e =
+                m.entrySet();
+        for (Map.Entry<String,Prodotto> entry: e)
+        {
+            System.out.println("Chiave:" + entry.getKey());
+            System.out.println("Valore:" + entry.getValue());
+        }
+        Map<String, Prodotto> nome;
+        nome = new HashMap<>();
+        for (Prodotto pr: prodotti)
+            nome.put(pr.getNome(),pr);
+        Set<Map.Entry<String,Prodotto>> enome =
+                nome.entrySet();
+        for (Map.Entry<String,Prodotto> entry: enome)
+        {
+            System.out.println("Chiave:" + entry.getKey());
+            System.out.println("Valore:" + entry.getValue());
+        }
+       
     }
     
 }
