@@ -91,6 +91,23 @@ int main()
     while(in4 >> s)
         cout << s << endl;
 
-
+    //Scrittura su file
+    ofstream out("output.txt");
+    if (!out)
+    {
+        cout << "Errore nell'apertura del file" << endl;
+        return -1;
+    }
+    out << "Ciao" << endl;
+    for (int i = 0; i < 10; i++)
+        out << i*i << endl;
+    out.close();
     return 0;
 }
+
+
+
+
+
+
+
