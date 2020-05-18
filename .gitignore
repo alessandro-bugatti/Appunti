@@ -48,3 +48,20 @@
 /quinta/htdocs/poste/
 /quinta/htdocs/tennis/
 /quinta/htdocs/ask*
+/quarta/gluon/Oroscopo/.nb-gradle/
+
+# Configurazione presa da https://github.com/kelemen/netbeans-gradle-project/blob/master/.gitignore
+
+/*/nb-configuration.xml
+/nbproject/
+/*/nbproject/
+/*/target/
+/*/build/
+/netbeans-gradle-default-models/gradle-api/
+.gradle/
+/.nb-gradle-properties
+.nb-gradle/
+
+# Directories left from old Ant project
+/build/
+/nbproject/private/
