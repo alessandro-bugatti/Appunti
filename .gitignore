@@ -49,6 +49,7 @@
 /quinta/htdocs/tennis/
 /quinta/htdocs/ask*
 /quarta/gluon/Oroscopo/.nb-gradle/
+/quinta/htdocs/supermercato/
 
 # Configurazione presa da https://github.com/kelemen/netbeans-gradle-project/blob/master/.gitignore
 
