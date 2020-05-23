@@ -4,6 +4,7 @@ import com.oroscopo.views.PrimaryView;
 import com.oroscopo.views.SecondaryView;
 import com.gluonhq.charm.glisten.application.MobileApplication;
 import com.gluonhq.charm.glisten.visual.Swatch;
+import com.oroscopo.views.GestorePersone;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -15,6 +16,7 @@ public class Oroscopo extends MobileApplication {
     
     @Override
     public void init() {
+        GestorePersone.carica();
         addViewFactory(PRIMARY_VIEW, () -> new PrimaryView().getView());
         addViewFactory(SECONDARY_VIEW, () -> new SecondaryView().getView());
 
