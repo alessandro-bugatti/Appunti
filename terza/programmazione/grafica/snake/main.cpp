@@ -17,7 +17,7 @@ using namespace vsgl2::video;
 using namespace vsgl2::utils;
 using namespace vsgl2::io;
 
-const int DIM = 20;
+const int DIM = 10;
 
 enum Direzione{ALTO, BASSO, DESTRA, SINISTRA};
 
@@ -67,11 +67,26 @@ void disegna_snake(Snake s)
         disegna_elemento(s.corpo[i]);
 }
 
+void aggiorna_snake(Snake &s)
+{
+    for (int i = s.lunghezza - 1; i > 0; i--)
+        s.corpo[i] = s.corpo[i-1];
+    if(s.direzione == ALTO)
+        s.corpo[0].y--;
+    if(s.direzione == BASSO)
+        s.corpo[0].y++;
+    if(s.direzione == DESTRA)
+        s.corpo[0].x++;
+    if(s.direzione == SINISTRA)
+        s.corpo[0].x--;
+
+}
+
 
 int main(int argc, char* argv[]) {
 
     Snake snake;
-    init_snake(snake,10,10,"assets/images/snake.png",10,ALTO);
+    init_snake(snake,10,10,"assets/images/snake.png",10,DESTRA);
     //init the library
     init();
 
@@ -79,10 +94,25 @@ int main(int argc, char* argv[]) {
     set_background_color(Color(0,0,0,255));
 
     //main loop
+    int aggiornamento = ms_time();
     while(!done())
     {
         disegna_snake(snake);
+        if (ms_time() - aggiornamento > 200)
+        {
+            if (is_pressed(VSGL_UP))
+                snake.direzione = ALTO;
+            if (is_pressed(VSGL_DOWN))
+                snake.direzione = BASSO;
+            if (is_pressed(VSGL_LEFT))
+                snake.direzione = SINISTRA;
+            if (is_pressed(VSGL_RIGHT))
+                snake.direzione = DESTRA;
+            aggiorna_snake(snake);
+            aggiornamento = ms_time();
+        }
         update();
+
     }
 
     //close the library and clean up everything
