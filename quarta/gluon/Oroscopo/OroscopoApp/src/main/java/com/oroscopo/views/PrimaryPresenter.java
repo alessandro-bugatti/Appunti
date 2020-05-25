@@ -7,6 +7,7 @@ import com.gluonhq.charm.glisten.visual.MaterialDesignIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 
@@ -26,6 +27,8 @@ public class PrimaryPresenter {
     private Label lblSegno;
     @FXML
     private Label lblOroscopo;
+    @FXML
+    private ComboBox<Persona> cmbPersone;
 
     public void initialize() {
         primary.showingProperty().addListener((obs, oldValue, newValue) -> {
@@ -33,10 +36,12 @@ public class PrimaryPresenter {
                 AppBar appBar = MobileApplication.getInstance().getAppBar();
                 appBar.setNavIcon(MaterialDesignIcon.MENU.button(e -> 
                         MobileApplication.getInstance().getDrawer().open()));
-                appBar.setTitleText("Primary");
-                appBar.getActionItems().add(MaterialDesignIcon.SEARCH.button(e -> 
-                        System.out.println("Search")));
+                appBar.setTitleText("Oroscopo");
+                //appBar.getActionItems().add(MaterialDesignIcon.SEARCH.button(e -> 
+                //        System.out.println("Search")));
             }
+            GestorePersone.carica();
+            cmbPersone.getItems().add(new Persona("Ale", "Bug", null));
         });
         
     }

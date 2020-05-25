@@ -8,8 +8,10 @@ package com.oroscopo.views;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -52,5 +54,32 @@ public class GestorePersone {
     public static ArrayList<Persona> getPersone()
     {
         return persone;
+    }
+    
+    public static void add(Persona p)
+    {
+        persone.add(p);
+    }
+    
+    
+    public static void salva() 
+    {
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream("persone.bin");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);      
+            oos.writeObject(persone);
+            oos.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GestorePersone.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(GestorePersone.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(GestorePersone.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }

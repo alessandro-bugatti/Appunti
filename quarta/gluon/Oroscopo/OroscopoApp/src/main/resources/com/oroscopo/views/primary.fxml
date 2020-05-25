@@ -2,6 +2,7 @@
 
 <?import com.gluonhq.charm.glisten.mvc.View?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
@@ -11,6 +12,8 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
+            <Label text="Scegli una persona" />
+            <ComboBox fx:id="cmbPersone" prefWidth="150.0" promptText="Persone" />
             <Label fx:id="lblDataNascita" text="Inserisci la tua data di nascita" />
             <DatePicker fx:id="dteDataNascita" />
             <Label fx:id="lblSegno" style="-fx-font-size: 24;" text="Segno" />
