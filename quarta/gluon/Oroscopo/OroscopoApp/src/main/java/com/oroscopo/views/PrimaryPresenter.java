@@ -40,8 +40,9 @@ public class PrimaryPresenter {
                 //appBar.getActionItems().add(MaterialDesignIcon.SEARCH.button(e -> 
                 //        System.out.println("Search")));
             }
-            GestorePersone.carica();
-            cmbPersone.getItems().add(new Persona("Ale", "Bug", null));
+            //GestorePersone.carica();
+            cmbPersone.getItems().clear();
+            cmbPersone.getItems().addAll(GestorePersone.getPersone());
         });
         
     }
@@ -51,6 +52,13 @@ public class PrimaryPresenter {
     private void btnOroscopoClick(ActionEvent event) {
         lblSegno.setText(GestoreOroscopo.getSegno(null));
         lblOroscopo.setText(GestoreOroscopo.getOroscopo());
+    }
+
+    @FXML
+    private void cmbPersoneChange(ActionEvent event) {
+        Persona p = cmbPersone.getValue();
+        dteDataNascita.setValue(p.getDataNascita());
+        btnOroscopoClick(event);
     }
     
 }

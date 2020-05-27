@@ -16,7 +16,7 @@ public class Oroscopo extends MobileApplication {
     
     @Override
     public void init() {
-        GestorePersone.carica();
+        //GestorePersone.carica();
         addViewFactory(PRIMARY_VIEW, () -> new PrimaryView().getView());
         addViewFactory(SECONDARY_VIEW, () -> new SecondaryView().getView());
 

@@ -14,7 +14,7 @@
             <Label text="Aggiungi una nuova persona" />
             <TextField fx:id="txtNome" promptText="Nome" />
             <TextField fx:id="txtCognome" promptText="Cognome" />
-            <DatePicker />
+            <DatePicker fx:id="dataNascita" />
          </children>
       </VBox>
    </center>
