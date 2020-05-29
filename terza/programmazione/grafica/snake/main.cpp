@@ -17,9 +17,15 @@ using namespace vsgl2::video;
 using namespace vsgl2::utils;
 using namespace vsgl2::io;
 
-const int DIM = 10;
+const int DIM = 16;
+const int LARGHEZZA = 640;
+const int ALTEZZA = 640;
+const int MAX_X = LARGHEZZA / DIM;
+const int MAX_Y = ALTEZZA / DIM;
 
 enum Direzione{ALTO, BASSO, DESTRA, SINISTRA};
+
+enum Cella{NIENTE, SERPENTE, MELA, ARANCIA};
 
 /**
     Rappresenta il singolo elemento di un serpente
@@ -41,8 +47,12 @@ struct Snake{
     int lunghezza;
 };
 
+struct Campo{
+    Cella celle[MAX_X][MAX_Y];
+};
+
 void init_snake(Snake &s, int x, int y,
-                string image, int lun, Direzione dir)
+                string image, int lun, Direzione dir, Campo &c)
 {
     s.lunghezza = lun;
     s.direzione = dir;
@@ -52,6 +62,7 @@ void init_snake(Snake &s, int x, int y,
         s.corpo[i].y = y + i;
         s.corpo[i].image = image;
         s.corpo[i].dim = DIM;
+        c.celle[x][y + i] = SERPENTE;
     }
 }
 
@@ -82,16 +93,36 @@ void aggiorna_snake(Snake &s)
 
 }
 
+Cella controlla_collisione(Snake s, Campo c)
+{
+    int x, y;
+    x = s.corpo[0].x;
+    y = s.corpo[0].y;
+    if(s.direzione == ALTO)
+        y = s.corpo[0].y - 1;
+    else if(s.direzione == BASSO)
+        y = s.corpo[0].y + 1;
+    else if(s.direzione == DESTRA)
+        x = s.corpo[0].x + 1;
+    else
+        x = s.corpo[0].x - 1;
+    return c.celle[x][y];
+}
 
 int main(int argc, char* argv[]) {
 
     Snake snake;
-    init_snake(snake,10,10,"assets/images/snake.png",10,DESTRA);
+    Campo c;
+    for (int i = 0; i < MAX_X; i++)
+        for (int j = 0; j < MAX_Y; j++)
+            c.celle[i][j] = NIENTE;
     //init the library
     init();
 
-    set_window(512, 512,"Snake");
+    set_window(640, 640,"Snake");
     set_background_color(Color(0,0,0,255));
+
+    init_snake(snake,10,10,"assets/images/snake.png",20,DESTRA,c);
 
     //main loop
     int aggiornamento = ms_time();
@@ -108,6 +139,9 @@ int main(int argc, char* argv[]) {
                 snake.direzione = SINISTRA;
             if (is_pressed(VSGL_RIGHT))
                 snake.direzione = DESTRA;
+            Cella cella = controlla_collisione(snake, c);
+            if (cella == SERPENTE)
+                break;
             aggiorna_snake(snake);
             aggiornamento = ms_time();
         }
