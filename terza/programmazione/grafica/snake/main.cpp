@@ -23,14 +23,15 @@ const int ALTEZZA = 640;
 const int MAX_X = LARGHEZZA / DIM;
 const int MAX_Y = ALTEZZA / DIM;
 
-enum Direzione{ALTO, BASSO, DESTRA, SINISTRA};
+enum Direzione {ALTO, BASSO, DESTRA, SINISTRA};
 
-enum Cella{NIENTE, SERPENTE, MELA, ARANCIA};
+enum Cella {NIENTE, SERPENTE, MELA, ARANCIA};
 
 /**
     Rappresenta il singolo elemento di un serpente
 */
-struct Elemento{
+struct Elemento
+{
     int dim;/// Dimensione del segmento
     string image;///Immagine con cui viene rappresentato
     int x;
@@ -41,13 +42,16 @@ struct Elemento{
     Rappresenta tutto il corpo di un serpente
 */
 
-struct Snake{
+struct Snake
+{
     Direzione direzione;
-    Elemento corpo[100];
+    Elemento corpo[1000];
     int lunghezza;
+    int bonus;
 };
 
-struct Campo{
+struct Campo
+{
     Cella celle[MAX_X][MAX_Y];
 };
 
@@ -62,8 +66,19 @@ void init_snake(Snake &s, int x, int y,
         s.corpo[i].y = y + i;
         s.corpo[i].image = image;
         s.corpo[i].dim = DIM;
+        s.bonus = 0;
         c.celle[x][y + i] = SERPENTE;
     }
+}
+
+void init_elemento(Elemento &e, int x, int y,
+                   string imm, Cella c, Campo &campo)
+{
+    e.dim = DIM;
+    e.x = x;
+    e.y = y;
+    e.image = imm;
+    campo.celle[x][y] = c;
 }
 
 void disegna_elemento(Elemento e)
@@ -78,8 +93,15 @@ void disegna_snake(Snake s)
         disegna_elemento(s.corpo[i]);
 }
 
-void aggiorna_snake(Snake &s)
+void aggiorna_snake(Snake &s, Campo &c)
 {
+    //Questa parte aggiorna sulla griglia la "coda"
+    //del serpente in modo da farla sparire
+    int xf = s.corpo[s.lunghezza-1].x;
+    int yf =s.corpo[s.lunghezza-1].y;
+    c.celle[xf][yf] = NIENTE;
+    //Questa parte aggiorna la posizione del serpente
+    //in base alla sua direzione
     for (int i = s.lunghezza - 1; i > 0; i--)
         s.corpo[i] = s.corpo[i-1];
     if(s.direzione == ALTO)
@@ -90,9 +112,19 @@ void aggiorna_snake(Snake &s)
         s.corpo[0].x++;
     if(s.direzione == SINISTRA)
         s.corpo[0].x--;
-
+    //Questa parte segna sulla griglia dove si
+    //è "spostata" la testa del serpente
+    int xi = s.corpo[0].x;
+    int yi =s.corpo[0].y;
+    c.celle[xi][yi] = SERPENTE;
 }
 
+
+/**
+    Verifica se la testa del serpente s è andata
+    a colliderecon qualcosa e ritorna la cosa con
+    cui ha colliso (NIENTE, SERPENTE, ...)
+*/
 Cella controlla_collisione(Snake s, Campo c)
 {
     int x, y;
@@ -109,10 +141,12 @@ Cella controlla_collisione(Snake s, Campo c)
     return c.celle[x][y];
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
 
     Snake snake;
     Campo c;
+    Elemento mela;
     for (int i = 0; i < MAX_X; i++)
         for (int j = 0; j < MAX_Y; j++)
             c.celle[i][j] = NIENTE;
@@ -123,12 +157,13 @@ int main(int argc, char* argv[]) {
     set_background_color(Color(0,0,0,255));
 
     init_snake(snake,10,10,"assets/images/snake.png",20,DESTRA,c);
-
+    init_elemento(mela, 5, 20, "assets/images/apple.png",MELA,c);
     //main loop
     int aggiornamento = ms_time();
     while(!done())
     {
         disegna_snake(snake);
+        disegna_elemento(mela);
         if (ms_time() - aggiornamento > 200)
         {
             if (is_pressed(VSGL_UP))
@@ -142,7 +177,15 @@ int main(int argc, char* argv[]) {
             Cella cella = controlla_collisione(snake, c);
             if (cella == SERPENTE)
                 break;
-            aggiorna_snake(snake);
+            if (cella == MELA)
+            {
+                c.celle[mela.x][mela.y] = NIENTE;
+                mela.x = rand()%MAX_X;
+                mela.y = rand()%MAX_Y;
+                c.celle[mela.x][mela.y] = MELA;
+                snake.bonus = 5;
+            }
+            aggiorna_snake(snake, c);
             aggiornamento = ms_time();
         }
         update();
