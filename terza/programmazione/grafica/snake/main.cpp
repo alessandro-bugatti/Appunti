@@ -25,7 +25,7 @@ const int MAX_Y = ALTEZZA / DIM;
 
 enum Direzione {ALTO, BASSO, DESTRA, SINISTRA};
 
-enum Cella {NIENTE, SERPENTE, MELA, ARANCIA};
+enum Cella {NIENTE, MURO, SERPENTE, MELA, ARANCIA};
 
 /**
     Rappresenta il singolo elemento di un serpente
@@ -99,7 +99,18 @@ void aggiorna_snake(Snake &s, Campo &c)
     //del serpente in modo da farla sparire
     int xf = s.corpo[s.lunghezza-1].x;
     int yf =s.corpo[s.lunghezza-1].y;
-    c.celle[xf][yf] = NIENTE;
+    if (s.bonus > 0)
+    {
+        s.corpo[s.lunghezza] = s.corpo[s.lunghezza-1];
+        s.lunghezza++;
+        s.bonus--;
+    }
+    else if (s.bonus < 0)
+    {
+        //Qui va il codice per l'accorciamento del corpo
+    }
+    else
+        c.celle[xf][yf] = NIENTE;
     //Questa parte aggiorna la posizione del serpente
     //in base alla sua direzione
     for (int i = s.lunghezza - 1; i > 0; i--)
